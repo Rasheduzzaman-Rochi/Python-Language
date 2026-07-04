@@ -31,3 +31,23 @@ s1 = Student("Sadia", [10, 20], 90)
 print(s1.marks)
 print(s1.name)
 print(s1.attendence)
+print(s1.check_grade())
+print(s1.predict_future_grade())
+
+students = [
+    Student("Hasan", [80, 90, 30], 85),
+    Student("Akash", [70, 60], 9),
+    Student("Jahid", [10, 20], 90)
+]
+
+print("All students final score")
+print("="*30)
+for s in students:
+    print(s.name, s.check_grade())
+
+print()
+
+print("All students future score")
+print("="*30)
+for s in students:
+    print(s.name, s.predict_future_grade())
