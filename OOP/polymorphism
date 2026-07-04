@@ -1,0 +1,41 @@
+class Student():
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+    def calculate_average(self):
+        return sum(self.marks) / len(self.marks)
+
+    def print_result(self):
+        avg = self.calculate_average()
+        print(f"{self.name} Average: {avg}")
+
+class OnlineStudent(Student):  
+    def __init__(self, name, marks, online_attendence):
+        super().__init__(name, marks)
+        self.online_attendence = online_attendence
+
+    def calculate_final_score(self):
+        avg = self.calculate_average()
+        return avg*0.9 + self.online_attendence * 0.1
+
+class OfflineStudent(Student):   
+    def __init__(self, name, marks, offline_attendence):
+        super().__init__(name, marks)
+        self.offline_attendence = offline_attendence
+
+    def calculate_final_score(self):
+        avg = self.calculate_average()
+        return avg*0.7 + self.offline_attendence * 0.3
+
+
+
+
+students = [
+    OnlineStudent("Hasan", [80, 90], 82),
+    OfflineStudent("Shayra", [70, 60], 63)
+]
+
+
+for s in students:
+    print(f"Name: {s.name} | Final Score: {s.calculate_final_score()}")
